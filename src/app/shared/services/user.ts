@@ -1,6 +1,6 @@
 export interface User {
 
-    uod : string;
+   uid: BigInteger;
     email: string;
     displayName: string;
     emailVerified: boolean;
