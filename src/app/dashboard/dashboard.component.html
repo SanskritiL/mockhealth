@@ -1,1 +1,25 @@
-<p>This is the dashboarfd</p>
+<h1>Hi! Dashboard of {{userInfo.email}}</h1>
+
+
+<h2> Just one step away :D</h2>
+
+
+<form (submit) ="onAddSubmit()">
+        <div>
+        <label>Full Name</label>
+        <input class="form-control" type="text" [(ngModel)]="fullname" name= "fullname">
+        </div>
+        <div>
+        <label>Major</label>
+        <input class="form-control" type="text" [(ngModel)]="major" name= "major">
+        </div>
+        <div>
+        <label>Hobbies</label>
+        <input class="form-control" type="text" [(ngModel)]="hobbies" name= "hobbies">
+        </div>
+        <input id="image"  [(ngModel)]="image" name="image" type="file" (change)="upload($event)" accept= ".png,.jpg">
+        <input type="submit" (click)= "onUpload()" value="submit" class="btn btn-success">
+</form>
+
+<a class="nav-link" >
+        <i class="fas fa-sign-out-alt">Log out</i> </a>

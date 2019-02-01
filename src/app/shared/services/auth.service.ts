@@ -35,7 +35,7 @@ export class AuthService {
     }
 
     // Signing in with email and password
-    SignIn(email, password) {
+    SignIn(email: any, password:any) {
         return this.afAuth.auth.signInWithEmailAndPassword(email,password)
         .then((result) => {
             this.ngZone.run(() => {

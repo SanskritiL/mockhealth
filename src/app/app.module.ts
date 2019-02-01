@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
@@ -29,9 +30,11 @@ import { FirestoreSettingsToken } from '@angular/fire/firestore';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFirestoreModule.enablePersistence(),
+    FormsModule
   ],
-  providers: [AuthService],
+  providers: [{provide:FirestoreSettingsToken, useValue: {}},AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
