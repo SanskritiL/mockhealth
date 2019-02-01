@@ -4,7 +4,7 @@
 <h2> Just one step away :D</h2>
 
 
-<form (submit) ="onAddSubmit()">
+<form (submit) ="onAddSubmit(form)">
         <div>
         <label>Full Name</label>
         <input class="form-control" type="text" [(ngModel)]="fullname" name= "fullname">
@@ -18,7 +18,7 @@
         <input class="form-control" type="text" [(ngModel)]="hobbies" name= "hobbies">
         </div>
         <input id="image"  [(ngModel)]="image" name="image" type="file"  accept= ".png,.jpg">
-        <input type="submit" value="submit" class="btn btn-success"  (click)="onAddSubmit()">
+        <input type="submit" value="submit" class="btn btn-success" >
 </form>
 
 <a class="nav-link" >
