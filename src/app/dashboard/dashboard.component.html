@@ -17,8 +17,8 @@
         <label>Hobbies</label>
         <input class="form-control" type="text" [(ngModel)]="hobbies" name= "hobbies">
         </div>
-        <input id="image"  [(ngModel)]="image" name="image" type="file" (change)="upload($event)" accept= ".png,.jpg">
-        <input type="submit" (click)= "onUpload()" value="submit" class="btn btn-success">
+        <input id="image"  [(ngModel)]="image" name="image" type="file"  accept= ".png,.jpg">
+        <input type="submit" value="submit" class="btn btn-success"  (click)="onAddSubmit()">
 </form>
 
 <a class="nav-link" >

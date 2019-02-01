@@ -11,15 +11,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-selectedFile: File
-upload(event){
-  const file = event.target.files[0]
-}
 
-onUpload(){
-
-}
-
+fullname:any;
+major:any;
+hobbies:any;
+image:any;
 
 userInfo: User
   constructor(
@@ -29,7 +25,18 @@ userInfo: User
     this.userInfo = JSON.parse(localStorage.getItem('user'));
   }
 
-  
+  onAddSubmit(){
+    let userdetail = {
+      fullname: this.fullname,
+      hobbies: this.hobbies,
+      major:this.major
+
+    }
+    this.firebaseService.adduserdetails(userdetail);
+    console.log("Lets see");
+    
+    
+  }
 
 
   

@@ -12,16 +12,14 @@ import { Observable } from 'rxjs';
 })
 export class FirebaseService {
   userdetails:  AngularFireList<any[]>
- 
-  
+  userdetail: AngularFireObject<any[]>
   constructor(public afstore: AngularFirestoreModule) {
-    
+    this.folder = 'profilepicture';
    }
+  folder: any;
+
   
 
-
-
-/*
   adduserdetails(userdetail){
      //Create root reference
      let storageRef = firebase.storage().ref();
@@ -33,13 +31,13 @@ export class FirebaseService {
       iRef.put(selectedFile).then((snapshot) => {
         userdetail.image = selectedFile.name;
         userdetail.path = path;
-        return this.userdetails.push(userdetail);
+        //return this.userdetails.push(userdetail);
       });
       
       }
       
     }
     
-*/
+
 
   }
