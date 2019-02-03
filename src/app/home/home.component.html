@@ -1,0 +1,15 @@
+<table class="table-hover">
+  <thead>
+    <th>Name</th>
+    <th>Hobbies</th>
+    <th>Major</th>
+    <th>Photourl  </th>
+  </thead>
+  <tbody>
+    <div *ngFor = "let user of list">
+        <th>{{user.fullname}}</th>
+      
+      <img src="{{imageURL}}" style= "width: 40%; border: 2px solid red; border-radius:50%;" class="thumbnail" >
+    </div>
+  </tbody>
+</table>

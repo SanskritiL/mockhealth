@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
+import {AngularFireStorageModule, StorageBucket} from '@angular/fire/storage';
+
 import { AngularFireDatabaseModule} from 'angularfire2/database';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +18,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { AuthService } from './shared/services/auth.service';
 import { FirestoreSettingsToken } from '@angular/fire/firestore';
-import { AngularFireDatabase } from 'angularfire2/database-deprecated';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { AngularFireDatabase } from 'angularfire2/database-deprecated';
     SignUpComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
+    HomeComponent,
     
   ],
   imports: [
@@ -36,7 +39,8 @@ import { AngularFireDatabase } from 'angularfire2/database-deprecated';
     AngularFirestoreModule,
     AngularFirestoreModule.enablePersistence(),
     FormsModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireStorageModule
     
     
   ],

@@ -3,7 +3,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { AuthService } from '../shared/services/auth.service';
 import { User } from '../shared/services/user';
 import { FirebaseService } from '../shared/services/firebase.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 //import {AngularFireDatabaseModule, }
 
@@ -13,7 +13,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
+userdetail:any
+id:any;
 fullname:any;
 major:any;
 hobbies:any;
@@ -23,7 +24,8 @@ userInfo: User
   constructor(
     private firebaseService: FirebaseService,
     private router: Router,
-    private firestore: AngularFirestore
+    private firestore: AngularFirestore,
+    private route: ActivatedRoute
   ) {
     this.userInfo = JSON.parse(localStorage.getItem('user'));
   }
@@ -39,16 +41,18 @@ userInfo: User
     }
     this.firebaseService.adduserdetails(userdetail);
 
-
+    this.router.navigate(['home']);
     console.log("Lets see");
-    
-    
-  }
+    }
 
 
   
   ngOnInit() {
-   
+   /*this.id = this.route.snapshot.params['id'];
+   this.firebaseService.getUserDetails(this.id).subscribe(userdetail=>{
+     this.userdetail = userdetail;
+   })
+   */
    
   }
 

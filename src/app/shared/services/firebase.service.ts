@@ -3,8 +3,6 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireList, AngularFireObject} from 'angularfire2/database';
 import { AngularFirestore } from "@angular/fire/firestore";
 import { AngularFireDatabase } from 'angularfire2/database-deprecated';
-
-
 import * as firebase from 'firebase';
 import { Observable } from 'rxjs';
 import {  FirebaseListObservable } from "angularfire2/database-deprecated";
@@ -19,17 +17,17 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class FirebaseService {
   userdetails:  AngularFireList<any>;
   userdetail: FirebaseListObservable<any[]>;
-
-
-  constructor(hm: AngularFireDatabaseModule, private firestore: AngularFirestore
+  userkoval:any
+  constructor(private hm: AngularFireDatabaseModule, private firestore: AngularFirestore
     ) {
-    this.folder = 'profilepicture';
-   }
-  folder: any;
-
-  
-
-  adduserdetails(userdetail){
+      this.folder = 'profilepicture';
+    }
+    folder: any;
+    
+    
+    
+    adduserdetails(userdetail){
+      var db = firebase.firestore();
      //Create root reference
      let storageRef = firebase.storage().ref();
     
@@ -40,19 +38,30 @@ export class FirebaseService {
       iRef.put(selectedFile).then((snapshot) => {
         userdetail.image = selectedFile.name;
         userdetail.path = path;
-        //this.afm.database.list('');
-        //return this.userdetails.push(userdetail);
         this.firestore.collection('userdeets').add(userdetail)
 
       });
       console.log(userdetail)
-      
-      //userdetail = this.db.collection('userdetail').valueChanges();
-      
+
       }
       
     }
     
+
+    getUserDetails(){
+      this.getUserObject()
+       return this.firestore.collection('userdeets').snapshotChanges();
+    }
+    //Just checking
+    getUserObject(){
+      console.log("new me")
+      var db = firebase.firestore();
+
+      this.userkoval = db.collection("userdeets");
+          console.log(this.userkoval)
+
+     
+    }
 
 
   }
