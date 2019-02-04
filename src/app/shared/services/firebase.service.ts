@@ -49,7 +49,7 @@ export class FirebaseService {
     
 
     getUserDetails(){
-      this.getUserObject()
+      //this.getUserObject()
        return this.firestore.collection('userdeets').snapshotChanges();
     }
     //Just checking

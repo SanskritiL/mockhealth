@@ -12,5 +12,6 @@ export interface Userdeets {
      major: string;
      path: string;
      image: string;
+     profileCompleted: boolean;
 
 }

@@ -1,43 +1,52 @@
 
-<div class="displayTable">
-    <div class="displayTableCell">
-  
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body>
+
+  <div class="container">
       <div class="authBlock">
         <h3>Sign In</h3>
-        <div class="formGroup">
+        <div class="formGroup ">
+      
           <input type="text" class="formControl" placeholder="Username" #userName required>
         </div>
   
-        <div class="formGroup">
+        <div class="formGroup ">
+          
           <input type="password" class="formControl" placeholder="Password" #userPassword required>
         </div>
   
         <!-- Calling SignIn Api from AuthService -->
         <div class="formGroup">
-          <input type="button" class="btn btnPrimary" value="Log in" (click)="authService.SignIn(userName.value, userPassword.value)">
+          <input type="button" class="login" value="Log in" (click)="authService.SignIn(userName.value, userPassword.value)">
         </div>
   
-        <div class="formGroup">
-          <span class="or"><span class="orInner">Or</span></span>
-        </div>
+        
+          <h2 class="or">or login with</h2>
+       
   
-        <!-- Calling GoogleAuth Api from AuthService -->
-        <div class="formGroup">
-          <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
-            <i class="fab fa-google-plus-g"></i>
-            Log in with Google
-          </button>
+         
+        <div class="circle">
+          
+            <i class="fab fa-google-plus-g g" (click)="authService.GoogleAuth()"></i>
+            
+          
         </div>
+        
   
-        <div class="forgotPassword">
-          <span routerLink="/forgot-password">Forgot Password?</span>
-        </div>
       </div>
+    
+          <div class="forgotPassword">
+            <span routerLink="/forgot-password">Forgot Password?</span>
+          </div>
   
-      <div class="redirectToLogin">
-        <span>Don't have an account?<span class="redirect" routerLink="/register-user"> Sign Up</span></span>
-      </div>
+          <div class="redirectto">
+          <span class="redirect" routerLink="/register-user">New User? Sign Up</span>
+          </div>
   
-    </div>
-  </div>
   
+
+</div>
+
+</body>

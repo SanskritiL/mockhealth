@@ -1,20 +1,27 @@
 import { Injectable, NgZone } from '@angular/core';
-import { User } from "../services/user";
+import { User, Userdeets } from "../services/user";
 import {auth} from 'firebase/app';
 import {AngularFireAuth} from "@angular/fire/auth";
-import {AngularFirestore, AngularFirestoreDocument} from '@angular/fire/firestore';
+import {AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection} from '@angular/fire/firestore';
 import { Router } from "@angular/router";
-
+import {FirebaseService} from '../services/firebase.service';
+import {HomeComponent} from '../../home/home.component';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
+import * as firebase from 'firebase';
 @Injectable({
     providedIn: 'root'
 })
 export class AuthService {
     userData: any; //Save logged in user data
-
+    answer: boolean;
+    homeornot:boolean;
+     val: Userdeets[];
     constructor(
+        public service: FirebaseService,
         public afs: AngularFirestore,  //Inject Firestore service
         public afAuth: AngularFireAuth,  //Inject Firebase auth service
         public router: Router,
+        
         public ngZone: NgZone // NgZone service to remove outside scope warning
     ){
     
@@ -33,14 +40,38 @@ export class AuthService {
             }
         })
     }
+ 
 
     // Signing in with email and password
     SignIn(email: any, password:any) {
         return this.afAuth.auth.signInWithEmailAndPassword(email,password)
         .then((result) => {
             this.ngZone.run(() => {
-                this.router.navigate(['dashboard']);
-            });
+                
+           this.service.getUserDetails().subscribe(actionArray=>{
+            actionArray.map(item => {
+                  console.log(item.payload.doc.data()["email"])
+                  console.log(item.payload.doc.data()["profileCompleted"])
+                  if(item.payload.doc.data()["email"] === email){
+                     
+                      if(item.payload.doc.data()["profileCompleted"] == true){
+                        this.router.navigate(['home']);
+                      }
+                    }
+                   else{
+                    
+                       this.router.navigate(['dashboard']);
+    
+                    }
+                 
+              })
+          })
+
+
+
+        });
+
+
             this.SetUserData(result.user);
         }).catch((error) => {
             window.alert(error.message)

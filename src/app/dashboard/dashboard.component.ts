@@ -19,23 +19,27 @@ fullname:any;
 major:any;
 hobbies:any;
 image:any;
-
-userInfo: User
+profileCompleted: boolean;
+userInfo: User;
+email:any;
   constructor(
     private firebaseService: FirebaseService,
     private router: Router,
     private firestore: AngularFirestore,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private authservice: AuthService
   ) {
     this.userInfo = JSON.parse(localStorage.getItem('user'));
   }
 
   onAddSubmit(form: NgForm){
     let userdetail = {
+      email: this.userInfo.email,
       fullname: this.fullname,
       hobbies: this.hobbies,
       major:this.major,
-      image: this.image
+      image: this.image,
+      profileCompleted: true
       
 
     }
@@ -46,7 +50,9 @@ userInfo: User
     }
 
 
-  
+  logout(){
+    this.authservice.SignOut()
+  }
   ngOnInit() {
    /*this.id = this.route.snapshot.params['id'];
    this.firebaseService.getUserDetails(this.id).subscribe(userdetail=>{
