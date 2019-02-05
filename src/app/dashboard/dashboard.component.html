@@ -1,25 +1,32 @@
-<h1>Hi! Dashboard of {{userInfo.email}}</h1>
 
+<body>
+<div class="container">
 
-<h2> Just one step away :D</h2>
+<h2>Welcome! You're just one step away.</h2>
 
 
 <form (submit) ="onAddSubmit(form)">
         <div>
-        <label>Full Name</label>
-        <input class="form-control" type="text" [(ngModel)]="fullname" name= "fullname">
+         <input class="form-control" type="text" [(ngModel)]="fullname" name= "fullname" placeholder="Full Name">
         </div>
         <div>
-        <label>Major</label>
-        <input class="form-control" type="text" [(ngModel)]="major" name= "major">
+        
+        <input class="form-control" type="text" [(ngModel)]="major" name= "major" placeholder="Major">
         </div>
         <div>
-        <label>Hobbies</label>
-        <input class="form-control" type="text" [(ngModel)]="hobbies" name= "hobbies">
+       
+        <input class="form-control" type="text" [(ngModel)]="hobbies" name= "hobbies"placeholder="Hobbies">
         </div>
-        <input id="image"  [(ngModel)]="image" name="image" type="file"  accept= ".png,.jpg">
-        <input type="submit" value="submit" class="btn btn-success" >
-</form>
+        <div>
+                <h3>Choose your Profile Picture.</h3>
+                <input id="image"  [(ngModel)]="image" name="image" type="file"  accept= ".png,.jpg">
+        </div>
+        <input type="submit" value="submit" >
+      </form>
 
 <a class="nav-link" >
         <i class="fas fa-sign-out-alt" (click)="logout()">Log out</i> </a>
+</div>
+
+
+</body>

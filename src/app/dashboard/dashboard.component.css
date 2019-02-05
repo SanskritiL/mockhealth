@@ -1,0 +1,111 @@
+
+.container{
+    display:in-line block;
+    position: relative;
+    top: 40px;
+    margin-left: 2rem;
+    width: 350px;
+    height: 500px;
+    
+    border-style: inset;
+    background-color: rgb(255, 255, 255);
+    padding:0px;
+    border: 2px solid white;
+    border-radius: 20px;
+    text-align:center;
+}
+@media screen and (max-width: 920px) {
+    .container {
+        padding-top: 5rem;
+        margin:auto;
+       /* The width is 100%, when the viewport is 800px or smaller */
+    }
+}
+h2{
+    font-size:17px;
+    color:black;
+}
+h3{
+    font-size:17px;
+    color:rgb(186, 85, 85);
+    float:left;  
+    margin-left: 1.6rem;
+}
+input[type=text]{
+    padding:0.4rem;
+    color: #777;
+    padding-left: 10px;
+    margin: 10px;
+    margin-top: 12px;
+    margin-left: 18px;
+    width: 290px;
+    height: 35px;
+    border: 1px solid #ae68df;
+    border-radius: 23px;
+    box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .4), 0 0 0 5px #f5f7f8
+
+}
+body {
+    /* Set rules to fill background */
+    background-image: url(../../assets/images/Headspace.png);
+    min-height: 100%;
+    min-width: 1024px;
+      
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+      
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  
+  @media screen and (max-width: 1024px) { /* Specific to this particular image */
+    body {
+      left: 50%;
+      margin-left: -512px;   /* 50% */
+    }
+  }
+
+input[type=submit]{
+    margin-top:3rem;
+    width: 140px;
+    height: 40px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #8f4af0; /*IE fallback*/
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#acd6ef), to(#6ec2e8));
+    background-image: -moz-linear-gradient(top left 90deg, #acd6ef 0%, #6ec2e8 100%);
+    background-image: linear-gradient(top left 90deg, #acd6ef 0%, #6ec2e8 100%);
+    border-radius: 30px;
+    border: 1px solid #6da6c7;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .3), inset 0 1px 0 rgba(255, 255, 255, .5);
+    cursor: pointer
+}
+::placeholder{
+    font-size:16px;
+    color:rgb(191, 155, 64);
+    font-weight: bold;
+}
+.input[type="submit"]:hover{
+    background-color: #ae4499; /*IE fallback*/
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#acd6ef), to(#6ec2e8));
+    background-image: -moz-linear-gradient(top left 90deg, #acd6ef 0%, #6ec2e8 100%);
+    background-image: linear-gradient(top left 90deg, #acd6ef 0%, #6ec2e8 100%);
+    border-radius: 30px;
+    border: 1px solid #6da6c7;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .3), inset 0 1px 0 rgba(255, 255, 255, .5);
+    cursor: pointer
+}
+#image{
+    
+    font-size: 14px;
+    
+}
+i{
+    padding: 0.9rem;
+    cursor: pointer;
+    color: red;
+}
