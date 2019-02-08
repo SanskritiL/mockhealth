@@ -1,0 +1,93 @@
+$primary-color: #a0b6d5;
+$secondary-color: rgb(107, 64, 150);
+$third-color: rgb(174, 84, 84);
+@mixin easeOut {
+    transition: all 0.5s ease-out;
+    
+}
+.navigate{
+    background-color: $secondary-color;
+    height: 70px;
+    
+}
+
+body{
+    background-color: $primary-color;
+    min-height: 100vh;
+}
+h6{
+    color:black;
+}
+        h1{
+            position: absolute;
+            font-size:16px;
+            top:35px;
+            right:2rem;
+            color:white;
+            
+           // display: inline-block;
+            
+        }
+
+        .pp{
+            position: absolute;
+            top:17px;
+            right:10.5rem;
+            width:45px;
+            height: 45px;
+            border: 2px solid white;
+            border-radius: 50%;
+ 
+        }
+        .logo{
+            position: absolute;
+            top:14px;
+            left:6rem;
+            width:120px;
+            height: 46px;
+           // border: 2px solid white;
+          
+        }
+
+
+
+
+.menu-btn{
+    position:absolute;
+    z-index:3;
+   left:35px;
+    top:35px;
+    cursor: pointer;
+    @include easeOut;
+
+    .btn-line{
+        width:28px;
+        height:3px;
+        margin: 0 0 5px 0;
+        background: #fff;
+        @include easeOut();
+    }
+    //Rotate Into X with menu lines
+    &.close{
+        transform: rotate(180deg);
+        .btn-line{
+            //Line 1-Rotate
+            &:nth-child(1){
+                transform: rotate(45deg) translate(5px,5px);
+            }
+
+            //Line 2-Disappear
+            &:nth-child(2){
+               opacity: 0;
+            }
+
+            //Line 3- Rotate
+            &:nth-child(3){
+                transform: rotate(-45deg) translate(7px,-6px);
+            }
+
+        }
+    }
+}
+
+//Menu overlay
