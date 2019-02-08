@@ -19,6 +19,7 @@ import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { AuthService } from './shared/services/auth.service';
 import { FirestoreSettingsToken } from '@angular/fire/firestore';
 import { HomeComponent } from './home/home.component';
+import { ViewfriendComponent } from './viewfriend/viewfriend.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { HomeComponent } from './home/home.component';
     ForgotPasswordComponent,
     VerifyEmailComponent,
     HomeComponent,
+    ViewfriendComponent,
     
   ],
   imports: [

@@ -1,9 +1,24 @@
+@mixin respond-to($media) {
+    @if $media == small-screens {
+      @media only screen and (min-width: 20px) and (max-width:449px) { @content; }
+    }
+    @else if $media == medium-screens {
+      @media only screen and (min-width: 450px) and (max-width: 1024px) { @content; }
+    }
+    @else if $media == wide-screens {
+      @media only screen and (min-width: 1024px) { @content; }
+    }
+  }
 $primary-color: #a0b6d5;
 $secondary-color: rgb(99, 57, 57);
-$third-color: rgb(174, 84, 84);
+$third-color: rgb(59, 69, 108);
 @mixin easeOut {
     transition: all 0.5s ease-out;
     
+}
+body{
+    padding:0;
+    margin:0;
 }
 .navigate{
     margin:0;
@@ -27,12 +42,26 @@ body{
 .bg-img{
     background: url('../../assets/images/dotted.jpg') no-repeat center center fixed; 
     position: relative;
-    min-height: 90vh;
+    height:90vh;
+    margin:0;
+    padding:0;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+   
+    @include respond-to(medium-screens){height: 80vh;};
+    @include respond-to(small-screens){height: 50vh;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+    
+    
+    };
 }
+
+
+
 
 
 .container  {
@@ -81,6 +110,9 @@ h6{
             height: 45px;
             border: 2px solid white;
             border-radius: 50%;
+            @include respond-to(medium-screens){ display:none; }
+            @include respond-to(small-screens){ display:none; }
+
  
         }
         .logo{
@@ -90,7 +122,10 @@ h6{
             width:120px;
             height: 46px;
            // border: 2px solid white;
-          
+           @include respond-to(medium-screens){ display:none; }
+           @include respond-to(small-screens){ display:none; }
+
+
         }
 
 
@@ -135,3 +170,34 @@ h6{
 }
 
 //Menu overlay
+html{
+    margin:0;
+    padding:0;
+}
+.league{
+    background-color: $primary-color;
+    height: 500px;
+    margin:0px;
+    padding:0px;
+    h2{
+            opacity:1;
+            font-size: 3rem;
+            padding: 0.3rem;
+            padding-top:6rem;
+            @include easeOut();
+
+        }
+    .everything{
+        opacity:0;
+        &.land{
+            opacity:1;
+            font-size:2rem;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+    }
+    
+    
+}
+.bottom{
+    height: 200vh;
+}

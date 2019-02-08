@@ -8,10 +8,13 @@ import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { HomeComponent } from './home/home.component';
 //Import can activate guard services
 import { AuthGuard } from "./shared/guard/auth.guard";
+import{ ViewfriendComponent} from "../app/viewfriend/viewfriend.component";
 import { SecureInnerPagesGuard } from "./shared/guard/secure-inner-pages.guard.ts.guard";
 const routes: Routes = [
    {path: '', redirectTo: '/sign-in', pathMatch: "full"},
    {path: 'sign-in', component:SignInComponent,canActivate: [SecureInnerPagesGuard]},
+   {path: 'viewfriend', component:ViewfriendComponent,canActivate: [SecureInnerPagesGuard]},
+
    {path: 'register-user', component:SignUpComponent,canActivate: [SecureInnerPagesGuard]},
    {path: 'dashboard', component:DashboardComponent,canActivate: [AuthGuard]},
    {path: 'verify-email-address', component:VerifyEmailComponent,canActivate: [SecureInnerPagesGuard]},

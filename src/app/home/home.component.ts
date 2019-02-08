@@ -40,6 +40,17 @@ export class HomeComponent implements OnInit {
   
  displayHome(){
 
+  $(window).scroll(function(){
+
+    var wScroll = $(this).scrollTop();
+    console.log(wScroll)
+   const text = document.querySelector('.everything');
+   if(wScroll> $('.bottom').offset().top){
+     text.classList.add('land')
+ 
+   }
+
+  });
   //for css
   const menuBtn = document.querySelector('.menu-btn');
   const menu = document.querySelector('.menu');
