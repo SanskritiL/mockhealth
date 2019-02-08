@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
   //for css
   const menuBtn = document.querySelector('.menu-btn');
   const menu = document.querySelector('.menu');
-  const menuNav = document.querySelector('.menu-nav');
+  const container = document.querySelector('.container');
   const navItems = document.querySelectorAll('.nav-items');
   //set initial state of menu
   let showMenu = false;
@@ -51,14 +51,14 @@ export class HomeComponent implements OnInit {
   function toggleMenu(){
     if(!showMenu){
         menuBtn.classList.add('close');
-        
+         container.classList.add('show');
       
 
         showMenu= true;
     }
     else{
       menuBtn.classList.remove('close');
-     
+      container.classList.remove('show');
 
 
 

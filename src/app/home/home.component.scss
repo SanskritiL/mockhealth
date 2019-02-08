@@ -1,38 +1,82 @@
 $primary-color: #a0b6d5;
-$secondary-color: rgb(107, 64, 150);
+$secondary-color: rgb(99, 57, 57);
 $third-color: rgb(174, 84, 84);
 @mixin easeOut {
     transition: all 0.5s ease-out;
     
 }
 .navigate{
+    margin:0;
+    padding:0;
     background-color: $secondary-color;
     height: 70px;
     
 }
-
+header{
+    padding:0;
+    margin:0;
+}
 body{
+    margin:0;
+    padding:0;
     background-color: $primary-color;
-    min-height: 100vh;
+    min-height:100vh;
+    overflow: hidden;
+}
+
+.bg-img{
+    background: url('../../assets/images/dotted.jpg') no-repeat center center fixed; 
+    position: relative;
+    min-height: 90vh;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+.container  {
+    opacity:0;
+  &.show{
+      opacity:0.9;
+    width:50vh;
+   
+    background-color: rgb(196, 116, 116);
+    height: 90vh;
+    @include easeOut();
+  }
+}
+.menu a{
+    padding:1rem;
+    display:inline-block;
+    color:white;
+    font-weight: bold;
+
+
+}
+.menu .close{
+
+}
+li{
+    list-style: none;
+    
 }
 h6{
     color:black;
-}
-        h1{
+}h1{
             position: absolute;
-            font-size:16px;
-            top:35px;
+            font-size:18px;
+            top:30px;
             right:2rem;
             color:white;
             
            // display: inline-block;
-            
-        }
+            }
 
         .pp{
             position: absolute;
-            top:17px;
-            right:10.5rem;
+            top:18px;
+            right:10.7rem;
             width:45px;
             height: 45px;
             border: 2px solid white;

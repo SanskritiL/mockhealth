@@ -10,7 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { AuthGuard } from "./shared/guard/auth.guard";
 import { SecureInnerPagesGuard } from "./shared/guard/secure-inner-pages.guard.ts.guard";
 const routes: Routes = [
-   {path: '', redirectTo: '/home', pathMatch: "full"},
+   {path: '', redirectTo: '/sign-in', pathMatch: "full"},
    {path: 'sign-in', component:SignInComponent,canActivate: [SecureInnerPagesGuard]},
    {path: 'register-user', component:SignUpComponent,canActivate: [SecureInnerPagesGuard]},
    {path: 'dashboard', component:DashboardComponent,canActivate: [AuthGuard]},
